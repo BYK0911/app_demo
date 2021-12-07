@@ -78,6 +78,44 @@ Icon(IconData(0xe758), fontFamily: 'IconFont')
 * 国际化传参：messageKey.trParams()
 * 切语言: Get.updateLocale(Locale(languageCode, countryCode))
 
+## 屏幕适配
+1. 文件头部引入依赖
+```dart
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+```
+
+2. 设置尺寸时使用 SizeExtension
+```dart
+///[ScreenUtil.setWidth]
+/// double get w => ScreenUtil().setWidth(this);
+
+///[ScreenUtil.setHeight]
+/// double get h => ScreenUtil().setHeight(this);
+
+///[ScreenUtil.radius]
+/// double get r => ScreenUtil().radius(this);
+
+///[ScreenUtil.setSp]
+/// double get sp => ScreenUtil().setSp(this);
+
+///smart size :  it check your value if it is bigger than your value set your value
+///for example you have set 16.sm() , if for your screen 16.sp() bigger than 16 it will  set 16 not 16.sp()
+///I think that it is good for save size balance on big sizes of screen
+///double get sm => min(toDouble(), sp);
+
+///屏幕宽度的倍数
+///Multiple of screen width
+/// double get sw => ScreenUtil().screenWidth * this;
+
+///屏幕高度的倍数
+///Multiple of screen height
+/// double get sh => ScreenUtil().screenHeight * this;
+Container(
+  width: 200.sp,
+  height: .5.sh,
+)
+```
+
 ## 其他
 * [Git提交规范](./docs/Git提交规范.md)
 * [代码规范](./docs/代码规范.md)
