@@ -20,8 +20,9 @@
 项目中对接口进行统一管理，所有接口都需要先在 apis 目录下定义，然后在页面中使用。
 1. 第一步，在 apis 目录下定义接口
 
-lib/apis/session.dart
 ```dart
+// lib/apis/session.dart
+
 /// 登录
 /// @param {String} username 用户名
 /// @param {String} password 密码
@@ -38,23 +39,23 @@ Future<Response<dynamic>> login(String username, String password) {
 
 ```
 
-2. 第二步，在 pages 目录下调用接口
+2. 第二步，在 pages 目录下引入和调用接口
 
-lib/pages/login/index.dart
 
 文件顶部引入接口
 ```dart
+// lib/pages/login/index.dart
 import '../../apis/session.dart';
-```
-调用接口方法
-```dart
-ElevatedButton(
-  onPressed: () async{
-    dynamic res = await login('admin', 'admin');
-    // ...
-  },
-  child: Text('login'.tr),
-)
+
+// ...
+    ElevatedButton(
+      onPressed: () async {
+        dynamic res = await login('admin', 'admin');
+        // ...
+      },
+      child: Text('login'.tr),
+    )
+// ...
 ```
 
 ## 图标
@@ -73,6 +74,11 @@ Icon(IconData(0xe758), fontFamily: 'IconFont')
 2. 在相应语种 locale 文件中增加国家化内容
 3. 在页面上通过 messageKey.tr 的形式实现国际化
 
-### 其他
+其他常用 Api
 * 国际化传参：messageKey.trParams()
 * 切语言: Get.updateLocale(Locale(languageCode, countryCode))
+
+## 其他
+* [Git提交规范](./docs/Git提交规范.md)
+* [代码规范](./docs/代码规范.md)
+
