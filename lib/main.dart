@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import './routes/index.dart';
 import './utils/route_util.dart';
@@ -16,13 +17,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-      getPages: routes,
-      navigatorObservers: [RouteInterceptor()],
-      locale: const Locale('en', 'US'),
-      translations: Messages(),
+    return ScreenUtilInit(
+      // designSize: const Size(380, 690),
+      builder: () => GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: '/',
+        getPages: routes,
+        navigatorObservers: [RouteInterceptor()],
+        locale: const Locale('en', 'US'),
+        translations: Messages(),
+      ),
     );
   }
 }
