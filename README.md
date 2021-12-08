@@ -28,7 +28,7 @@
 /// @param {String} password 密码
 /// 
 Future<Response<dynamic>> login(String username, String password) {
-  return Http().dio.post(
+  return dio.post(
     '/login',
     data: {
       'username': username,
