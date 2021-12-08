@@ -1,3 +1,16 @@
+/// TopSheet/BottomSheet
+///
+/// 用法：
+/// sheet.open(
+///   context,
+///   child: childWidget,
+///   position: SheetPosition.top,
+///   backdrop: true,
+///   dismissable: true
+/// )
+///
+/// sheet.close()
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,7 +21,7 @@ enum SheetPosition {
 
 late AnimationController _animationController;
 
-class _DrawUtil {
+class _SheetUtil {
   OverlayEntry? _entry;
   bool _sheetOpened = false;
 
@@ -152,4 +165,4 @@ class __SheetWidgetState extends State<_SheetWidget>
   }
 }
 
-_DrawUtil sheet = _DrawUtil();
+_SheetUtil sheet = _SheetUtil();
