@@ -7,9 +7,6 @@ import './i18n/index.dart';
 
 void main() {
   runApp(const MyApp());
-  // const Locale locale = Locale('en', 'US');
-  // Get.updateLocale(locale);
-  // print(locale);
 }
 
 class MyApp extends StatelessWidget {
@@ -21,10 +18,10 @@ class MyApp extends StatelessWidget {
       // designSize: const Size(380, 690),
       builder: () => GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
+        initialRoute: '/i18n',
         getPages: routes,
         navigatorObservers: [RouteInterceptor()],
-        locale: const Locale('en', 'US'),
+        locale: const Locale('en'),
         translations: Messages(),
       ),
     );
